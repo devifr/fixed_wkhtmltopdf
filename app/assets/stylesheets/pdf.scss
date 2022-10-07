@@ -1,0 +1,95 @@
+$white: #fff;
+$white-darker: #f2f2f2;
+
+
+* {
+  font-family: "SFProText-Regular", "SF Pro Display", "Lucida Grande", "Helvetica Neue", "Helvetica", "Arial", "Verdana", "sans-serif";
+}
+
+body{
+  height: 100%;
+}
+
+.header{
+  margin-top: 0;
+  font-size: 20px;
+  margin-bottom: 50px;
+}
+
+.header-pdf {
+  font-size: 12px;
+  text-align: left;
+}
+
+.footer {
+  position: relative;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  font-size: 12px;
+
+  &-left {
+    float: left;
+    width: 33.3%;
+    text-align: left;
+  }
+
+  &-center {
+    float: left;
+    width: 33.3%;
+    text-align: center;
+  }
+
+  &-right {
+    float: left;
+    width: 33.3%;
+    text-align: right;
+  }
+}
+
+.footer-text {
+  padding-top: 20px;
+  font-size: 8px;
+
+  .notice {
+    clear: left;
+    text-align: center;
+  }
+
+  .purpose {
+    text-align: center;
+  }
+}
+
+.content {
+  font-size: 12px;
+}
+
+table {
+  width: 100%;
+  margin-bottom: 50px;
+  border-collapse: collapse;
+  text-align: left;
+
+  th {
+    border-style: solid;
+    border-width: 1px;
+    border-color: #ddd;
+    text-align: left;
+  }
+
+  th,
+  td {
+    min-width: 25%;
+    padding: 8px;
+    border-bottom: 1px solid $white;
+  }
+
+  tr:nth-child(even) {
+    background-color: $white-darker;
+  }
+
+  td:nth-child(2) {
+    min-width: 200px;
+  }
+}

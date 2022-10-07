@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <script>
+      function number_pages() {
+        var vars={};
+        var x=document.location.search.substring(1).split("&");
+        for(var i in x) {var z=x[i].split("=",2);vars[z[0]] = decodeURIComponent(z[1]);}
+        var x=["frompage","topage","page","webpage","section","subsection","subsubsection"];
+        for(var i in x) {
+          var y = document.getElementsByClassName(x[i]);
+          for(var j=0; j<y.length; ++j) y[j].textContent = vars[x[i]];
+        }
+      }
+    </script>
+  </head>
+  <body class="footer" onload="number_pages()">
+    <span class="footer-left">Confidential</span>
+    <span class="footer-center">
+      Page&nbsp;
+      <span class="page">
+      </span> of&nbsp;
+      <span class="topage">
+      </span> </span><span class="footer-right"><%= Date.current.strftime("%-m/%-d/%Y") %>
+    </span>
+    <div class="footer-text">
+      <div class="notice">
+        NOTICE OF PROPRIETARY PROPERTY THE INFORMATION CONTAINED HEREIN IS THE PROPRIETARY PROPERTY OF APPLE INC.
+        THE POSSESSOR AGREES TO THE FOLLOWING:
+      </div>
+      <div class="purpose" i="">TO MAINTAIN THIS DOCUMENT IN CONFIDENCE, (ii) NOT TO REPRODUCE OR COPY IT (iii) NOT TO REVEAL OR PUBLISH IT IN WHOLE OR PART</div>
+    </div>
+  </body></html>

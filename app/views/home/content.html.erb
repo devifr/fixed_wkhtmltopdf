@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+  <html>
+    <head>
+      <%= wicked_pdf_stylesheet_link_tag "pdf" %>
+      <script>
+        function number_pages() {
+          var vars={};
+          var x=document.location.search.substring(1).split("&");
+          for(var i in x) {var z=x[i].split("=",2);vars[z[0]] = decodeURIComponent(z[1]);}
+          var x=["frompage","topage","page","webpage","section","subsection","subsubsection"];
+          for(var i in x) {
+            var y = document.getElementsByClassName(x[i]);
+            for(var j=0; j<y.length; ++j) y[j].textContent = vars[x[i]];
+          }
+        }
+      </script>
+    </head>
+    <body onload="number_pages()">
+      <div class="header">
+        <%= wicked_pdf_image_tag 'logo.png', width: '20px' %> Copy Deck
+      </div>
+      <div class="content">
+        <table>
+          <tr>
+            <th> Project Title</th>
+            <th> Products</th>
+            <th> Name</th>
+            <th> Last Update</th>
+          </tr>
+          <tr>
+            <td> Name </td>
+            <td>Product Name</td>
+            <td>Deck Name</td>
+            <td> Today </td>
+          </tr>
+        </table>
+      </div>
+      <div class="footer">
+        <span class="footer-left">Confidential</span>
+        <span class="footer-center">
+          Page&nbsp;
+          <span class="page"> 1
+          </span> of&nbsp;
+          <span class="topage"> 1
+          </span> </span><span class="footer-right"><%= Date.current.strftime("%-m/%-d/%Y") %>
+        </span>
+        <div class="footer-text">
+          <div class="notice">
+            NOTICE OF PROPRIETARY PROPERTY THE INFORMATION CONTAINED HEREIN IS THE PROPRIETARY PROPERTY OF APPLE INC.
+            THE POSSESSOR AGREES TO THE FOLLOWING:
+          </div>
+          <div class="purpose" i="">TO MAINTAIN THIS DOCUMENT IN CONFIDENCE, (ii) NOT TO REPRODUCE OR COPY IT (iii) NOT TO REVEAL OR PUBLISH IT IN WHOLE OR PART</div>
+        </div>
+      </div>
+  </body>
+</html>
